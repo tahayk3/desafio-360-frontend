@@ -63,6 +63,18 @@
     background-color: #F23005;
 }
 
+/*Estilos }para boton de cerrar sesion*/
+.close-session-navbar{
+    background-color: #f40404;
+    text-align: center;
+    border-bottom: 2px solid #fff;
+    color: #fff;
+}
+.close-session-navbar:hover{
+    background-color: #F23005;
+}
+
+
 /* Media Queries para dispositivos móviles */
 @media (max-width: 768px) {
     .navbar a {
