@@ -1,0 +1,188 @@
+/* css componente */
+marquee {
+  color: #ffffff;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  height: 30px;
+  background: rgba(0, 0, 0, 0.91);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.container-cards {
+  width: 100%;
+  display: flex;
+  /* Cambiado a flex */
+  justify-content: space-between;
+  /* Espaciado entre elementos */
+  flex-wrap: wrap;
+  /* Permitir que los elementos se ajusten en varias filas */
+  gap: 16px;
+  /* Espaciado entre las cards */
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1px;
+  background-color: #e5e5e5de;
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0);
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+  border-radius: 30px;
+
+  width: calc(25% - 16px);/* Tamaño de cada card (ajusta según columnas deseadas) */
+  margin-bottom: 16px;  /* Espaciado vertical entre filas */
+  height: 650px;
+}
+
+.card-image {
+  width: 400px;
+  min-height: 450px;
+  object-fit: contain;
+}
+
+.card-image>img {
+  width: 90%;
+  height: 100%;
+  object-fit: cover;
+  object-position: bottom;
+  border-radius: 15px 15px 0px 0px;
+}
+
+.card-text {
+  margin: -20px auto;
+  margin-bottom: -50px;
+  height: 200px;
+  width: 320px;
+  background-color: #383838c2;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.card-meal-type {
+  font-style: italic;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  margin-bottom: 1px;
+  margin-top: 1px;
+  transform: rotate(-3deg);
+}
+
+.card-body {
+  font-size: 1.25rem;
+}
+
+.card-view-more {
+  width: 150px;
+  height: 50px;
+  background-color: #c50f0cea;
+  margin-left: 50%;
+  border-radius: 15px;
+  margin-top: 25px;
+  margin-bottom: 20px;
+  padding-top: 15px;
+  cursor: pointer;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  animation: vibrate-2 1s linear infinite both;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  /* Asegura que el texto se mantenga alineado en el centro */
+  overflow: hidden;
+  /* Evita que el contenido se desborde */
+}
+
+.out-of-stock {
+  border: 1px solid #ff0000;
+}
+
+.stock-warning {
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+@keyframes vibrate-2 {
+  0% {
+    transform: translate(0);
+  }
+
+  20% {
+    transform: translate(2px, -2px);
+  }
+
+  40% {
+    transform: translate(2px, 2px);
+  }
+
+  60% {
+    transform: translate(-2px, 2px);
+  }
+
+  80% {
+    transform: translate(-2px, -2px);
+  }
+
+  100% {
+    transform: translate(0);
+  }
+}
+
+.card-view-more p {
+  color: #fff;
+  font-size: 1.5rem;
+  /* Ajusté el tamaño del texto para que se ajuste mejor */
+  animation: tracking-in-contract 3s cubic-bezier(.215, .61, .355, 1.000) infinite;
+
+  white-space: nowrap;
+  /* Evita que el texto se rompa en varias líneas */
+  overflow: hidden;
+  /* Asegura que el texto no se salga del div */
+
+}
+
+@keyframes tracking-in-contract {
+  0% {
+    letter-spacing: 1em;
+    opacity: 0;
+  }
+
+  40% {
+    opacity: .6;
+  }
+
+  100% {
+    letter-spacing: normal;
+    opacity: 1;
+  }
+}
+
+@media (max-width: 1300px) {
+  .card {
+    width: 100%;
+  }
+
+  .card-text {
+    margin: -50px 0px -50px 0px;
+  }
+
+  .card-image>img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: left;
+  }
+
+  .card-view-more p {
+    font-size: 1.2rem;
+  }
+}

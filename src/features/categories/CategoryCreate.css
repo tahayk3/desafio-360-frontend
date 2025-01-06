@@ -1,0 +1,83 @@
+.container-form {
+  padding-left: 15%;
+  margin-top: 1%;
+}
+
+.title {
+  text-align: center;
+  font-size: 3rem;
+  color: #000000;
+  margin-bottom: 1px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-label {
+  font-size: 1.1rem;
+  margin-bottom: 1px;
+  color: #555;
+}
+
+.form-input {
+  width: 100%;
+  padding: 1px 0;
+  margin: 10px 0;
+  border: none;
+  /* Elimina el borde */
+  border-bottom: 2px solid #030303;
+  /* Solo muestra un borde inferior */
+  background: transparent;
+  /* Elimina el fondo */
+  outline: none;
+  /* Elimina el resalte al hacer focus */
+  font-size: 12px;
+  transition: border-color 0.3s ease;
+  /* Transición suave */
+  color: #F23005;
+}
+
+.form-input:focus {
+  border-color: #F23005;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #F23005;
+  color: white;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #e6361e;
+}
+
+/* Media Queries para dispositivos móviles */
+@media (max-width: 768px) {
+  .container {
+    display: contents;
+  }
+
+  .container-logo {
+    position: relative;
+    top: 0%;
+    /* Fija el logo en la parte superior */
+    left: 0%;
+    /* Para centrarlo */
+  }
+
+  .container-logo img {
+    width: 100%;
+  }
+
+  .radio-label {
+    font-size: 20px;
+  }
+}

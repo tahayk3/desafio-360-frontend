@@ -1,0 +1,190 @@
+.container-category {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  /* O 'center' dependiendo de lo que necesites */
+
+  flex-direction: column;
+}
+
+.container-logo-category {
+  position: absolute;
+  top: 10%;
+  /* Fija el logo en la parte superior */
+  left: 30%;
+  /* Para centrarlo */
+}
+
+.container-form-category {
+  padding-left: 1%;
+  margin-top: 1%;
+}
+
+  .title {
+    text-align: center;
+    font-size: 3rem;
+    color: #000000;
+    margin-bottom: 1px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-label {
+    font-size: 1.1rem;
+    margin-bottom: 1px;
+    color: #555;
+  }
+  
+  .form-input {
+    width: 100%;
+    padding: 1px 0;
+    margin: 10px 0;
+    border: none;
+    /* Elimina el borde */
+    border-bottom: 2px solid #030303;
+    /* Solo muestra un borde inferior */
+    background: transparent;
+    /* Elimina el fondo */
+    outline: none;
+    /* Elimina el resalte al hacer focus */
+    font-size: 12px;
+    transition: border-color 0.3s ease;
+    /* Transición suave */
+    color: #F23005;
+  }
+  
+  .form-input:focus {
+    border-color: #F23005;
+  }
+  
+  .radio-group {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 65px;
+  }
+  
+  .radio-label {
+    cursor: pointer;
+    transition: color 0.3s ease;
+    font-size: 40px;
+  }
+  
+  .radio-label.selected {
+    color: #ffffff; /* Cambiar color cuando está seleccionado */
+    background-color: #F23005;
+  }
+  
+  /* Estilos adicionales si quieres poner un radio más grande o personalizarlo */
+  .radio-input {
+    display: none; /* Oculta el radio button */
+  }
+  
+  
+  button {
+    padding: 5px 20px;
+    margin: 5px;
+    border: none;
+    background-color: #fd2e00;
+    color: white;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: #071fd9;
+  }
+
+
+ /* Contenedor general para la lista */
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  li:last-child {
+    border-bottom: none;
+  }
+  
+  /* Contenedor interno para organizar el nombre y botones */
+  li .item-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  
+  /* Nombre de la categoría */
+  li .product-name {
+    flex: 1; /* Ocupa el espacio disponible */
+    font-size: 1rem;
+    color: #333;
+    text-align: left; /* Asegura alineación a la izquierda */
+    word-break: break-word; /* Rompe palabras largas */
+    padding-right: 15px; /* Añade separación del botón */
+  }
+  
+  /* Botones de acción */
+  li .actions {
+    display: flex; /* Los botones se mantienen juntos */
+    gap: 10px; /* Espacio entre los botones */
+  }
+  
+  li .actions button {
+    padding: 5px 10px;
+    border: none;
+    background-color: #F23005;
+    color: white;
+    font-size: 0.9rem;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  li .actions button:hover {
+    background-color: #e6361e;
+  }
+
+ .product-img{
+    width: 10%;
+    border-radius: 10px;
+  }
+
+
+  /* Media Queries para dispositivos móviles */
+  @media (max-width: 768px) {
+    .container {
+      display: contents;
+    }
+  
+    .container-logo {
+      position: relative;
+      top: 0%;
+      /* Fija el logo en la parte superior */
+      left: 0%;
+      /* Para centrarlo */
+  
+    }
+  
+    .container-logo img {
+      width: 100%;
+    }
+  
+    .radio-label {
+      font-size: 20px;
+    }
+  }

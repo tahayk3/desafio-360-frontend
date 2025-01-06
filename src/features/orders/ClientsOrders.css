@@ -1,0 +1,194 @@
+/* Styles.css */
+.orders-container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+  }
+  
+  .order-section {
+    margin-top: 75px;
+    margin-bottom: 30px;
+  }
+  
+  .order-section h2 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #f23005;
+    padding-bottom: 5px;
+  }
+  
+  .order-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .order-card h3 {
+    font-size: 1.2rem;
+    margin: 0;
+    color: #f23005;
+  }
+  
+  .order-card-details {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .order-card-details p {
+    margin: 5px 0;
+    font-size: 0.9rem;
+    color: #555;
+  }
+  
+  .order-card button {
+    background: #f23005;
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .order-card button:hover {
+    background: #d92004;
+  }
+  
+  .modal {
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #fff;
+    max-width: 600px;
+    margin: 0 auto;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  }
+  
+  .overlay {
+    background: rgba(0, 0, 0, 0.5);
+  }
+  
+
+  /*modal*/
+
+  /* Styles.css */
+
+/* Overlay - fondo semitransparente */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Modal - contenedor principal */
+.modal {
+  background: #fff;
+  width: 90%;
+  max-width: 500px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  position: relative;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+/* Título del modal */
+.modal h2 {
+  margin: 0 0 15px;
+  font-size: 1.5rem;
+  color: #f23005;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 10px;
+}
+
+/* Detalles del modal */
+.modal p {
+  font-size: 1rem;
+  color: #333;
+  margin: 10px 0;
+}
+
+/* Select y botones */
+.modal select {
+  margin-top: 10px;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 0.9rem;
+}
+
+.modal button {
+  margin-top: 15px;
+  padding: 10px 15px;
+  background: #f23005;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.modal button:hover {
+  background: #d92004;
+}
+
+/* Botón de cerrar (esquina) */
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #333;
+  cursor: pointer;
+}
+
+.modal-close:hover {
+  color: #f23005;
+}
+
+
+/*MODAL DETALLES*/
+
+/* Estilos de la tabla */
+.products-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 0.9rem;
+}
+
+.products-table th,
+.products-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+.products-table th {
+  background-color: #f23005;
+  color: white;
+  font-weight: bold;
+}
+
+.products-table tbody tr:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+
+.products-table tbody tr:hover {
+  background-color: #f1f1f1;
+}

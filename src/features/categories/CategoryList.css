@@ -1,0 +1,173 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  
+  .container-logo {
+    position: absolute;
+    top: 5%;
+    left: 50%;
+  }
+  
+  .container-form {
+    padding-left: 15%;
+    margin-top: 1%;
+  }
+  
+  .title {
+    text-align: center;
+    font-size: 3rem;
+    color: #000000;
+    margin-bottom: 1px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-label {
+    font-size: 1.1rem;
+    margin-bottom: 1px;
+    color: #555;
+  }
+  
+  .form-input {
+    width: 100%;
+    padding: 1px 0;
+    margin: 10px 0;
+    border: none;
+    border-bottom: 2px solid #030303;
+    background: transparent;
+    outline: none;
+    font-size: 12px;
+    transition: border-color 0.3s ease;
+    color: #F23005;
+  }
+  
+  .form-input:focus {
+    border-color: #F23005;
+  }
+  
+  .radio-group {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 65px;
+  }
+  
+  .radio-label {
+    cursor: pointer;
+    transition: color 0.3s ease;
+    font-size: 40px;
+  }
+  
+  .radio-label.selected {
+    color: #ffffff;
+    background-color: #F23005;
+  }
+  
+  .radio-input {
+    display: none; 
+  }
+  
+  
+  button {
+    padding: 5px 20px;
+    margin: 5px;
+    border: none;
+    background-color: #fd2e00;
+    color: white;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: #071fd9;
+  }
+
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  li:last-child {
+    border-bottom: none;
+  }
+  
+  li .item-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  
+
+  li .category-name {
+    flex: 1; 
+    font-size: 1rem;
+    color: #333;
+    text-align: left; 
+    word-break: break-word; 
+    padding-right: 15px;
+  }
+  
+
+  li .actions {
+    display: flex;
+    gap: 10px; 
+  }
+  
+  li .actions button {
+    padding: 5px 10px;
+    border: none;
+    background-color: #F23005;
+    color: white;
+    font-size: 0.9rem;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  li .actions button:hover {
+    background-color: #e6361e;
+  }
+  
+  
+  /* Media Queries para dispositivos móviles */
+  @media (max-width: 768px) {
+    .container {
+      display: contents;
+    }
+  
+    .container-logo {
+      position: relative;
+      top: 0%;
+      /* Fija el logo en la parte superior */
+      left: 0%;
+      /* Para centrarlo */
+  
+    }
+  
+    .container-logo img {
+      width: 100%;
+    }
+  
+    .radio-label {
+      font-size: 20px;
+    }
+  }
