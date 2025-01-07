@@ -4,10 +4,9 @@
     align-items: center;
     padding-top: 200px;
     padding-left: 36%;
-    color: black;
+    color: rgb(255, 255, 255);
   }
   
-  /* Contenedor del login */
   .login-container {
     border-radius: 16px;
     padding: 50px;
@@ -16,14 +15,13 @@
     justify-content: center;
     align-items: center;
   
-    background-color: rgba(255, 255, 255, 0.01); /* Color de fondo translúcido */
+    background-color: rgba(255, 255, 255, 0.01); 
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(0.7px);
     -webkit-backdrop-filter: blur(0.7px);
     
   }
   
-  /* Título del formulario */
   .login-container h2 {
     margin-bottom: 20px;
     font-size: 24px;
@@ -31,17 +29,16 @@
     text-align: center;
   }
   
-  /* Campos del formulario */
   .login-input, .login-button {
     width: 100%;
     padding: 10px 0;
     margin: 10px 0;
-    border: none; /* Elimina el borde */
-    border-bottom: 2px solid #ccc; /* Solo muestra un borde inferior */
-    background: transparent; /* Elimina el fondo */
-    outline: none; /* Elimina el resalte al hacer focus */
+    border: none; 
+    border-bottom: 2px solid #ccc; 
+    background: transparent; 
+    outline: none; 
     font-size: 16px;
-    transition: border-color 0.3s ease; /* Transición suave */
+    transition: border-color 0.3s ease;
     color: #F23005;
   }
   
@@ -60,23 +57,21 @@
   .login-input:focus {
     outline: none;
     border-color: #F23005;
-    color: black;
+    color: rgb(255, 255, 255);
   }
   
   .register-link {
     background-color: none;
     font-size: 20px;
-    color: black;;
+    color: rgb(255, 255, 255);;
   }
 
-  /* Imagen del login */
   .login-image img {
     max-width: 400px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
   
-  /* Contenedor de las imágenes */
   .container-fotoIA {
     flex: 1;
     display: flex;
@@ -84,16 +79,15 @@
     align-items: center;
   }
   
-  /* Media Queries para pantallas medianas */
   @media (max-width: 1024px) {
     .login-wrapper {
-      flex-direction: column; /* Coloca los elementos uno sobre otro */
+      flex-direction: column; 
     }
   
     .login-container {
       margin: 20px;
-      width: 60%; /* Ajusta el tamaño del contenedor del login */
-      height: auto; /* Ajusta la altura para pantallas medianas */
+      width: 60%; 
+      height: auto;
     }
   
     .container-fotoIA {
@@ -102,7 +96,6 @@
     }
   }
   
-  /* Media Queries para pantallas pequeñas (móviles) */
   @media (max-width: 768px) {
     .login-wrapper{
       padding: 0px;
@@ -114,15 +107,15 @@
     }
   
     .login-container h2 {
-      font-size: 20px; /* Reduce el tamaño del texto */
+      font-size: 20px; 
     }
   
     .login-input, .login-button {
-      font-size: 14px; /* Reduce el tamaño de los textos */
+      font-size: 14px; 
     }
   
     .login-image img {
-      max-width: 100%; /* Ajusta el tamaño de la imagen en pantallas pequeñas */
+      max-width: 100%;
     }
   }
   

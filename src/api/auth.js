@@ -87,4 +87,21 @@ export const updateUser = async (token, id, data) => {
   return response.json();
 };
 
+export const activeUser = async (token, id, data) => {
+  const response = await fetch(`${BASE_URL}/usuarios/${id}`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify(data),
+  });
+
+  if (!response.ok) {
+    throw new Error("Error al editar el usuario");
+  }
+
+  return response.json();
+};
+
 

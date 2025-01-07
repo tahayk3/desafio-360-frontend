@@ -15,7 +15,7 @@ body {
     position: fixed;
     bottom: 10px;
     right: 10px;
-    background-color: #F23005;
+    background-color: #20bf11ea;
     color: white;
     padding: 10px 20px;
     border: none;
@@ -63,7 +63,7 @@ body {
   }
   
   .cart-item {
-    background-color: #fff;
+    background-color: #040404;
     border: 1px solid #ddd;
     margin: 10px 0;
     padding: 15px;
@@ -150,5 +150,10 @@ body {
   .purchase-button:disabled {
     background-color: #ccc;
     cursor: not-allowed;
+  }
+
+
+  .cancel-button{
+    background-color: rgb(105, 7, 7);
   }
   

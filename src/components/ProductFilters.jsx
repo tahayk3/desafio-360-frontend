@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { getCategorias } from "../api/categorias";
 import { useAuth } from "../contexts/AuthContext";
+import './ProductFilters.css';
 
 const ProductFilters = ({ onFilter, visibleFilters = {} }) => {
   const [filters, setFilters] = useState({

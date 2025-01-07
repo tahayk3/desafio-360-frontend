@@ -24,6 +24,7 @@ const Navbar = () => {
       </button>
       <div className={`navbar ${isOpen ? "open" : ""}`}>
         <img src="/logo.png" alt="Logo" />
+        <a className="elemet-navbar" href="/">Login</a>
         <a className="elemet-navbar" href="/home">Ordenes</a>
         <a className="elemet-navbar" href="/productos">Productos</a>
         <a className="elemet-navbar" href="/categorias">Categorias</a>

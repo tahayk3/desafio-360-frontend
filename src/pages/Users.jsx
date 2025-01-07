@@ -1,6 +1,6 @@
 import { useAuth } from "../contexts/AuthContext";
 import Register from "./Register";
-import { getUsers, disableUser } from "../api/auth";
+import { getUsers, disableUser, activeUser } from "../api/auth";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -15,6 +15,7 @@ const Users = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [filters, setFilters] = useState({});
 
+  
 
   useEffect(() => {
     if (role !== null && role !== undefined && role !== "1") {
@@ -49,13 +50,37 @@ const Users = () => {
 
     try {
       await disableUser(token, usuario.id_usuario);
+      console.log("Intentanco desactivar al usuario con el id: ", usuario.id_usuario);
       alert("Usuario desactivado con éxito.");
       fetchUsuarios(currentPage);
     } catch (error) {
       console.error("Error al desactivar categoria:", error);
-      alert("Error al desactivar la categoria.");
+      alert("Error al desactivar al usuario.");
     }
   };
+
+  const handleActive = async (usuario) => {
+    if (
+      !window.confirm(
+        `¿Seguro que quieres activar al usuario con el correo:  "${usuario.correo} y nombre: ${usuario.nombre_completo} "?`
+      )
+    ) {
+      return;
+    }
+
+    try {
+      const data = {activo: 1};
+
+      await activeUser(token, usuario.id_usuario, data);
+      alert("Usuario activado con éxito.");
+      fetchUsuarios(currentPage);
+    } catch (error) {
+      console.error("Error al activar usuarip:", error);
+      alert("Error al activar al usuario.");
+    }
+  };
+
+  
 
   const handlePageChange = (newPage) => {
     if (newPage > 0 && newPage <= totalPages) {
@@ -89,6 +114,10 @@ const Users = () => {
                   <div className="actions">
                     <button onClick={() => handleDelete(usuario)}>
                       Desactivar
+                    </button>
+
+                    <button onClick={() => handleActive(usuario)}>
+                      Activar 
                     </button>
                   </div>
                 </div>

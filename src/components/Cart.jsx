@@ -9,11 +9,6 @@ const Cart = ({ cart, setCart }) => {
   const { token } = useAuth();
   const [deliveryDate, setDeliveryDate] = useState("");
   const [isCartVisible, setIsCartVisible] = useState(false);
-  // Cargar carrito desde localStorage al inicio
-  useEffect(() => {
-    const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
-    setCart(savedCart);
-  }, [setCart]);
 
   // Función para eliminar un producto del carrito
   const removeFromCart = (productId) => {
@@ -22,16 +17,20 @@ const Cart = ({ cart, setCart }) => {
     localStorage.setItem("cart", JSON.stringify(updatedCart)); // Actualiza localStorage
   };
 
-  // Función para actualizar la cantidad de un producto
   const updateQuantity = (productId, quantity) => {
+    const validQuantity = isNaN(quantity) || quantity < 1 ? 1 : Math.floor(quantity);
+  
     const updatedCart = cart.map((item) =>
       item.id_producto === productId
-        ? { ...item, quantity: Math.max(1, quantity) }
+        ? { ...item, quantity: validQuantity }
         : item
     );
+    
     setCart(updatedCart);
     localStorage.setItem("cart", JSON.stringify(updatedCart)); // Actualiza localStorage
   };
+
+  
 
   // Calcular el total del carrito
   const calculateTotal = () => {
@@ -41,8 +40,8 @@ const Cart = ({ cart, setCart }) => {
   // Manejar la compra
   const handlePurchase = async () => {
     const data = {
-      fecha_entrega: deliveryDate, // Ajusta la lógica para la fecha de entrega si es dinámica.
-      id_cliente: localStorage.getItem("userId"), // Usa el identificador del cliente actual.
+      fecha_entrega: deliveryDate, 
+      id_cliente: localStorage.getItem("userId"),
       detalles: cart.map((item) => ({
         id_producto: item.id_producto,
         cantidad: item.quantity,
@@ -50,7 +49,6 @@ const Cart = ({ cart, setCart }) => {
     };
 
     try {
-      // Llama al endpoint para registrar la compra
       const response = await registrarCompra(data, token);
       alert(response.message);
       setCart([]); // Limpia el carrito tras finalizar la compra.
@@ -69,10 +67,12 @@ const Cart = ({ cart, setCart }) => {
     localStorage.removeItem("cart"); // Limpia el carrito en el localStorage
   };
 
+
   return (
     <div className="cart-container">
       <button className="toggle-cart-button" onClick={toggleCartVisibility}>
-        {isCartVisible ? "Cerrar Carrito " : "Ver Carrito"}<GiShoppingCart />
+        {isCartVisible ? "Cerrar Carrito " : "Ver Carrito"}
+        <GiShoppingCart />
       </button>
 
       {isCartVisible && (
@@ -132,12 +132,12 @@ const Cart = ({ cart, setCart }) => {
           </button>
 
           <button
-              className="cancel-button"
-              onClick={cancelPurchase}
-              disabled={cart.length === 0}
-            >
-              Rechazar
-            </button>
+            className="cancel-button"
+            onClick={cancelPurchase}
+            disabled={cart.length === 0}
+          >
+            Rechazar
+          </button>
         </div>
       )}
     </div>

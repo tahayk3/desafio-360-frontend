@@ -29,15 +29,20 @@ marquee {
   display: flex;
   flex-direction: column;
   margin-top: 1px;
-  background-color: #e5e5e5de;
-  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0);
-  backdrop-filter: blur(0px);
-  -webkit-backdrop-filter: blur(0px);
   border-radius: 30px;
 
-  width: calc(25% - 16px);/* Tamaño de cada card (ajusta según columnas deseadas) */
-  margin-bottom: 16px;  /* Espaciado vertical entre filas */
+  width: calc(25% - 16px);
+  /* Tamaño de cada card (ajusta según columnas deseadas) */
+  margin-bottom: 16px;
+  /* Espaciado vertical entre filas */
   height: 650px;
+
+  background: rgba( 255, 255, 255, 0.05 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 0px );
+  -webkit-backdrop-filter: blur( 0px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 
 .card-image {
@@ -80,6 +85,23 @@ marquee {
   font-size: 1.25rem;
 }
 
+.add-to-cart-button{
+  width: 120px;
+  background-color: #20bf11ea;
+  margin-left: 70%;
+  border-radius: 15px;
+  cursor: pointer;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  animation: vibrate-2 1s linear infinite both;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  /* Asegura que el texto se mantenga alineado en el centro */
+  overflow: hidden;
+  /* Evita que el contenido se desborde */
+}
+
 .card-view-more {
   width: 150px;
   height: 50px;
@@ -91,7 +113,6 @@ marquee {
   padding-top: 15px;
   cursor: pointer;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-  animation: vibrate-2 1s linear infinite both;
   display: flex;
   justify-content: center;
   align-items: center;

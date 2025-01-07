@@ -2,7 +2,8 @@
 .orders-container {
     padding: 20px;
     font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
+    background-color: rgb(6, 38, 74);
+
   }
   
   .order-section {
@@ -12,7 +13,7 @@
   
   .order-section h2 {
     font-size: 1.5rem;
-    color: #333;
+    color: #ffffff;
     margin-bottom: 15px;
     border-bottom: 2px solid #f23005;
     padding-bottom: 5px;

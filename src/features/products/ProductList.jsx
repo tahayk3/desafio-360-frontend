@@ -6,11 +6,10 @@ import ProductFilters from "../../components/ProductFilters";
 import Cart from "../../components/Cart";
 import { GiClick } from "react-icons/gi";
 import { HiCursorClick } from "react-icons/hi";
-import { FaRulerHorizontal } from "react-icons/fa";
 import { MdFactory } from "react-icons/md";
 import { PiMoneyWavy } from "react-icons/pi";
-import { RiProductHuntLine } from "react-icons/ri";
 import "./ProductList.css";
+import { GiShoppingCart } from "react-icons/gi";
 
 const ProductList = () => {
   const { token } = useAuth(); // Token del usuario logueado
@@ -34,7 +33,7 @@ const ProductList = () => {
         setProducts(data.data); // Los productos están en `data.data`
         setTotalPages(data.totalPages || 1); // Ajuste de totalPages
       } else {
-        setProducts([]); // Si no es un array válido, asignamos un array vacío
+        setProducts([]);
       }
     } catch (error) {
       setError("Error al cargar los productos.", error);
@@ -45,7 +44,7 @@ const ProductList = () => {
 
   const handleFilters = (appliedFilters) => {
     setFilters(appliedFilters);
-    fetchProducts(1, appliedFilters); // Reiniciar a la página 1 con los nuevos filtros
+    fetchProducts(1, appliedFilters);
   };
 
   useEffect(() => {
@@ -58,13 +57,53 @@ const ProductList = () => {
     }
   };
 
+  // Solo sincroniza el carrito desde localStorage cuando el componente se monta.
+  useEffect(() => {
+    const savedCart = localStorage.getItem("cart");
+    if (savedCart) {
+      const parsedCart = JSON.parse(savedCart);
+      setCart(parsedCart);
+    } else {
+      setCart([]);
+    }
+  }, []);
+
+  useEffect(() => {
+    // Al cambiar el carrito, actualiza localStorage en ProductList
+    if (cart.length > 0) {
+      localStorage.setItem("cart", JSON.stringify(cart));
+    }
+  }, [cart]); // Cada vez que el carrito cambia, sincroniza con localStorage
+
+  const addToCart = (product) => {
+    const existingProductIndex = cart.findIndex(
+      (item) => item.id_producto === product.id_producto
+    );
+
+    let updatedCart;
+
+    if (existingProductIndex >= 0) {
+      updatedCart = cart.map((item, index) =>
+        index === existingProductIndex
+          ? { ...item, quantity: item.quantity + 1 }
+          : item
+      );
+    } else {
+      // Producto nuevo al carrito
+      updatedCart = [...cart, { ...product, quantity: 1 }];
+    }
+
+    setCart(updatedCart);
+    localStorage.setItem("cart", JSON.stringify(updatedCart)); // Actualiza localStorage
+  };
+
   if (loading) return <p>Cargando productos...</p>;
   if (error) return <p>{error}</p>;
 
   return (
     <div>
       <Cart cart={cart} setCart={setCart} />
-      <h2>Lista de Productos</h2>
+      <h2 className="title">Lista de Productos</h2>
 
       <ProductFilters
         onFilter={handleFilters}
@@ -86,14 +125,19 @@ const ProductList = () => {
       <div className="container-cards">
         {Array.isArray(products) && products.length > 0 ? (
           products.map((product) => (
-            <div
-              className="card"
-              key={product.id}
-              onClick={() => navigate(`/product/${product.id_producto}`)}
-            >
+            <div className="card" key={product.id}>
+              {product.stock > 0 && (
+                <button
+                  className="add-to-cart-button"
+                  onClick={() => addToCart(product)}
+                >
+                  Agregar <GiShoppingCart/>
+                </button>
+              )}
               <div className="card-image">
                 <img src={product.foto} alt={product.name} />
               </div>
+
               <div
                 className={`card-text ${
                   product.stock === 0 ? "out-of-stock" : ""
@@ -110,14 +154,15 @@ const ProductList = () => {
                   <p className="card-body stock-warning">🚫 Sin stock</p>
                 )}
               </div>
-              {product.stock > 0 && (
-                <div className="card-view-more">
-                  <p>
-                    Ver más
-                    <GiClick />
-                  </p>
-                </div>
-              )}
+              <button
+                className="card-view-more"
+                onClick={() => navigate(`/product/${product.id_producto}`)}
+              >
+                <p>
+                  Ver más
+                  <GiClick />
+                </p>
+              </button>
             </div>
           ))
         ) : (
