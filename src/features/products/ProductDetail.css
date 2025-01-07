@@ -1,0 +1,123 @@
+.product-detail {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 100px;
+    height: 80vh;
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.product-detail-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 50%;
+    color: rgb(255, 255, 255);
+}
+
+.product-info {
+    flex: 1;
+    padding: 20px;
+}
+
+.product-info strong{
+    color: #F23005;
+    font-size: 1.5rem;
+}
+
+.product-title{
+    font-size: 2rem;
+}
+
+.product-image {
+    flex: 1;
+    max-width: 500px;
+    /* Limita el tamaño del carrusel en pantallas grandes */
+    padding: 20px;
+}
+
+.product-image img {
+    max-width: 600px;
+    max-height: 400px;
+    object-fit: contain;
+    /* Las imágenes se ajustan al contenedor sin recortarse */
+    margin: 0 auto;
+    /* Centrar la imagen */
+}
+
+
+//xd
+
+/* Estilos para el bloque de calificaciones */
+.product-rating {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .product-rating span {
+    font-size: 24px;
+    color: #ff9800; /* Un color anaranjado para las estrellas */
+    margin-bottom: 10px;
+  }
+  
+  .product-rating p {
+    font-size: 14px;
+    color: #ffffff; /* Un color más claro para el texto */
+    font-weight: 500;
+  }
+  
+  /* Estilos para la información adicional */
+  .product-additional-info {
+    margin-top: 30px;
+    font-size: 16px;
+    color: #ffffff;
+    line-height: 1.6;
+  }
+  
+  .product-additional-info p {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    margin: 5px 0;
+  }
+  
+  .product-additional-info p::before {
+    content: "✔"; /* Icono de checkmark */
+    font-size: 18px;
+    color: #4caf50; /* Verde brillante */
+    margin-right: 10px; /* Espaciado entre el icono y el texto */
+  }
+  
+  .product-additional-info p:hover {
+    color: #ff5722; /* Cambio de color al pasar el cursor */
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
+
+
+@media (max-width: 768px) {
+    .product-detail {
+        flex-direction: column;
+        /* Apila los elementos en pantallas más pequeñas */
+    }
+
+    .product-image,
+    .product-info {
+        max-width: 100%;
+        flex: none;
+        /* Desactiva el comportamiento flexible en pantallas pequeñas */
+        padding: 10px;
+    }
+}
