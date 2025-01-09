@@ -86,7 +86,7 @@ const Cart = ({ cart, setCart }) => {
                 <li key={product.id_producto} className="cart-item">
                   <div>
                     <span className="product-name">{product.nombre}</span> -
-                    <span className="product-price">${product.precio}</span> x
+                    <span className="product-price">Q {product.precio}</span> x
                     <span className="product-quantity">{product.quantity}</span>
                   </div>
                   <input
@@ -111,7 +111,7 @@ const Cart = ({ cart, setCart }) => {
               ))}
             </ul>
           )}
-          <h3 className="cart-total">Total: ${calculateTotal()}</h3>
+          <h3 className="cart-total">Total: Q {calculateTotal()}</h3>
           <div className="delivery-info">
             <label>
               Fecha y Hora de Entrega:
